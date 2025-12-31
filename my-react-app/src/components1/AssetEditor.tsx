@@ -1,5 +1,5 @@
 import React from "react";
-import { Asset } from "../";
+import { Asset } from "../types";
 
 interface AssetEditorState {
 name: string;
@@ -49,20 +49,20 @@ change: "",
 
 
 render() {
-return (
-<form onSubmit={this.handleSubmit}>
-<h3>Add Asset</h3>
+    return (
+        <form onSubmit={this.handleSubmit}>
+        <h3>Add Asset</h3>
 
 
-<input name="name" onChange={this.handleChange} />
-<input name="symbol" onChange={this.handleChange} />
-<input name="value" type="number" onChange={this.handleChange} />
-<input name="change" type="number" onChange={this.handleChange} />
+        <input name="name" onChange={this.handleChange} />
+        <input name="symbol" onChange={this.handleChange} />
+        <input name="value" type="number" onChange={this.handleChange} />
+        <input name="change" type="number" onChange={this.handleChange} />
 
 
-<button>Add</button>
-</form>
-);
+        <button>Add</button>
+        </form>
+    );
 }
 }
 
