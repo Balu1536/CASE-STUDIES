@@ -1,4 +1,4 @@
-export interface Asset {
+export default interface Asset {
 name: string;
 symbol: string;
 value: number;
