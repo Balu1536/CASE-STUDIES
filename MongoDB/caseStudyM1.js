@@ -1,14 +1,7 @@
-/*************************************************
- * MovieFlix Analytics – Aggregation Framework
- * Dummy Data + Aggregation Pipelines
- *************************************************/
 
 // Switch / create database
 db = db.getSiblingDB("movieFlix");
 
-/* ------------------------------------------------
-   1. Insert Dummy Data
------------------------------------------------- */
 
 db.watchHistory.insertMany([
   {
@@ -77,9 +70,7 @@ db.watchHistory.insertMany([
   }
 ]);
 
-/* ------------------------------------------------
-   2. Average Rating & Total Views per Genre (USA)
------------------------------------------------- */
+// 2. Average Rating & Total Views per Genre (USA)
 
 db.watchHistory.aggregate([
   { $match: { country: "USA" } },
@@ -100,9 +91,7 @@ db.watchHistory.aggregate([
   }
 ]);
 
-/* ------------------------------------------------
-   3. Top 5 Movies by Views in 2024
------------------------------------------------- */
+// 3. Top 5 Movies by Views in 2024
 
 db.watchHistory.aggregate([
   { $match: { year: 2024 } },
@@ -111,9 +100,7 @@ db.watchHistory.aggregate([
   { $project: { _id: 0, movie: 1, views: 1 } }
 ]);
 
-/* ------------------------------------------------
-   4. Count Movies per Genre
------------------------------------------------- */
+////  4. Count Movies per Genre
 
 db.watchHistory.aggregate([
   {
@@ -131,9 +118,7 @@ db.watchHistory.aggregate([
   }
 ]);
 
-/* ------------------------------------------------
-   5. Top 3 Genres by Total Views in 2024
------------------------------------------------- */
+//  5. Top 3 Genres by Total Views in 2024
 
 db.watchHistory.aggregate([
   { $match: { year: 2024 } },
@@ -154,11 +139,9 @@ db.watchHistory.aggregate([
   }
 ]);
 
-/* ------------------------------------------------
-   6. Challenge Solution:
-   Avg rating per genre in 2024
-   Only genres with totalViews > 10000
------------------------------------------------- */
+//  6. Challenge Solution:
+  // Avg rating per genre in 2024
+  // Only genres with totalViews > 10000
 
 db.watchHistory.aggregate([
   { $match: { year: 2024 } },

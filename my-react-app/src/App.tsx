@@ -18,12 +18,30 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <center>
+    <div style={{alignItems:"center"}}>
       <h1>My Portfolio Dashboard</h1>
       <AssetEditor onUpdate={handleUpdate} />
       <PortfolioSummary assets={assets} />
-      </center>
+      
+    {assets.length === 0 && <p>No assets added yet</p>}
+
+      {assets.map((asset) => (
+        <div
+          key={asset.symbol}
+          style={{
+            border: "1px solid #ccc",
+            padding: "10px",
+            margin: "10px",
+            width: "250px",
+          }}
+        >
+          <p><b>name:</b>{asset.name}</p>
+          <p><b>symbol:</b>{asset.symbol}</p>
+          <p><b>value:</b>{asset.value}</p>
+          <p><b>change:</b>{asset.change}</p>
+        </div>
+
+      ))}
     </div>
   );
 };

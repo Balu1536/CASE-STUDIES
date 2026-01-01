@@ -41,6 +41,7 @@ class AssetEditor extends React.Component<AssetEditorProps, AssetEditorState> {
 
   render() {
     return (
+      <div>
       <form onSubmit={this.handleSubmit}>
         <input
           name="name"
@@ -70,6 +71,7 @@ class AssetEditor extends React.Component<AssetEditorProps, AssetEditorState> {
         />
         <button type="submit">Add/Update Asset</button>
       </form>
+      </div>
     );
   }
 }
