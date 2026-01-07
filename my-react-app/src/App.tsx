@@ -1,16 +1,28 @@
-import { CommentBox } from "./components/CommentBox";
+import { NotificationsPanel } from './store/slices/NotificationPanel';
+import { useDesignHubStore } from './store/DesignHubStore';
 
-function App() {
-  const handlePost = (comment: string) => {
-    alert(comment);
-  };
+export default function App() {
+  const addNotification = useDesignHubStore(
+    (s) => s.addNotification
+  );
 
   return (
     <div>
-      <h1>NewsFleet</h1>
-      <CommentBox onPost={handlePost} />
+      <h1>DesignHub</h1>
+
+      <button
+        onClick={() =>
+          addNotification({
+            id: Date.now().toString(),
+            message: 'New comment added',
+            read: false,
+          })
+        }
+      >
+        Add Notification
+      </button>
+
+      <NotificationsPanel />
     </div>
   );
 }
-
-export default App;
