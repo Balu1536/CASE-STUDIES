@@ -1,18 +1,35 @@
-// 
+// // 
 
+//upto 9
+// {
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "CommonJS",
+//     "module": "esnext",
+//     "jsx": "react-jsx",
 
+//     "types": ["jest", "node"],
+//     "typeRoots": ["./node_modules/@types"],
+
+//     "strict": true,
+//     "moduleResolution": "node",
+//     "esModuleInterop": true,
+//     "skipLibCheck": true
+//   },
+//   "include": ["src"]
+// }
+
+//for 10
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
+    "target": "es2017",
+    "module": "esnext",
     "jsx": "react-jsx",
-
-    "types": ["jest", "node"],
-    "typeRoots": ["./node_modules/@types"],
-
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
   "include": ["src"]
 }
+

@@ -1,24 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
-
+import { lazy, Suspense } from 'react';
 import Home from './pages/Home';
-import { LoadingSpinner } from './components/LoadingSpinner';
-import { ErrorBoundary } from './components/ErrorBoundary';
 
-// Lazy route
-const AdminPanel = lazy(() => import('./pages/AdminPanel'));
+const AdminPage = lazy(() => import('./pages/AdminPage'));
 
 export function AppRouter() {
   return (
     <BrowserRouter>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/admin" element={<AdminPanel />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
